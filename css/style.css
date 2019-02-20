@@ -1,0 +1,48 @@
+body {
+    margin:75px auto;
+    background:grey;
+}
+
+#form {
+    margin:0 auto;
+    width: 980px;
+    background:white;
+    padding:25px;
+    border-radius: 20px;
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, .2);
+}
+#form > label,input{
+    display:block;
+    margin: 10px auto;
+    width:350px;
+}
+
+#form > input {
+    height: 25px;
+    width: 350px;
+}
+
+#form > input[type="submit"] {
+    border: none;
+    width:150px;
+    height: 45px;
+    cursor:pointer;
+    background:orange;
+    color:white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    transition:  all ease-in 0.3s;
+    border:1px solid white;
+
+}
+
+#form > input[type="submit"]:hover{
+    background-color:green;
+}
+
+h1 {
+    text-decoration: underline;
+    text-align: center;
+    color:grey;
+    margin:55px;
+}
