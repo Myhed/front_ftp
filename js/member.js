@@ -4,9 +4,9 @@ window.onload = function(){
     }
 
     const ConvertLocalStorageToObject = JSON.parse(localStorage.path)
-    ConvertLocalStorageToObject.rootDir.forEach((ressource,index) => {
-        const ressourcesKnown = whatTypeRessourcesIsIt(ressource.type,ressource.name)
-        
+    ConvertLocalStorageToObject.rootDir.forEach(async(ressource,index) => {
+        const ressourcesKnown = await whatTypeRessourcesIsIt(ressource.type,ressource.name)
+        createRessourceHtml(ressourcesKnown)
     })
-    
+    console.log(localStorage)
 }

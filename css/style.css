@@ -3,13 +3,14 @@ body {
     background:grey;
 }
 
-#form {
+#form,#container{
     margin:0 auto;
     width: 980px;
     background:white;
     padding:25px;
     border-radius: 20px;
     box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, .2);
+    box-sizing: border-box;
 }
 #form > label,input{
     display:block;
@@ -45,4 +46,22 @@ h1 {
     text-align: center;
     color:grey;
     margin:55px;
+}
+
+.list {
+    margin:0 auto;
+}
+.list > li {
+    display: inline-block;
+    margin-right:15px;
+}
+
+.list > li a{
+    display: block;
+    padding: 30px;
+}
+
+.list > li a img {
+    vertical-align: middle;
+    margin-right: 8px;
 }

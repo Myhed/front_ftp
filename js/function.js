@@ -3,16 +3,33 @@ function getHomeDirectory(){
     request.send()
 }
 
-function whatTypeRessourcesIsIt(Ressource,name){
+async function whatTypeRessourcesIsIt(Ressource,name){
     const regex = /^d/
     let icon = ''
     let RessourcesTypeFound = {};
-    if(Ressource.match(regex)){
-        icon = 'folder';
-    }else{
-        icon = 'file';
-    }
-    RessourcesTypeFound = Object.assign({Ressource:icon,RessourceName:name})
-    return RessourcesTypeFound;
+    return new Promise((resolve, reject) => {
+        if(Ressource.match(regex)){
+            icon = 'file:///home/myhed/Documents/front_ftp/img/Folder-icon.png';
+        }else{
+            icon = 'file:///home/myhed/Documents/front_ftp/img/file-icon.png';
+        }
+        RessourcesTypeFound = Object.assign({Ressource:icon,RessourceName:name})
+        resolve(RessourcesTypeFound);
+    })
+    
+}
 
+async function createRessourceHtml(ressourcesKnown={}){
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+    const img = document.createElement('img')
+    const container = document.querySelector("#container > .list")
+    const ressourceText = document.createTextNode(ressourcesKnown.RessourceName)
+    a.setAttribute("href","");
+    img.setAttribute("src",ressourcesKnown.Ressource)
+    img.setAttribute("width","25");
+    a.appendChild(img)
+    a.appendChild(ressourceText);
+    li.appendChild(a);
+    container.appendChild(li);
 }
