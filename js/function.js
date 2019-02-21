@@ -19,6 +19,18 @@ async function whatTypeRessourcesIsIt(Ressource,name){
     
 }
 
+function displayError(message){
+    const error = document.querySelector(".error");
+    const errorText = document.querySelector(".error .text");
+    const messageNode = document.createTextNode(message)
+    error.classList.add('error-display');
+    errorText.classList.add('text-display');
+    setTimeout(() => {
+        errorText.appendChild(messageNode)
+        errorText.classList.add("text-display-opacity")
+    })
+}
+
 async function createRessourceHtml(ressourcesKnown={}){
     const li = document.createElement('li');
     const a = document.createElement('a');
@@ -28,7 +40,7 @@ async function createRessourceHtml(ressourcesKnown={}){
     a.setAttribute("href","");
     img.setAttribute("src",ressourcesKnown.Ressource)
     img.setAttribute("width","25");
-    a.appendChild(img)
+    a.appendChild(img);
     a.appendChild(ressourceText);
     li.appendChild(a);
     container.appendChild(li);

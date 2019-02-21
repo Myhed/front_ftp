@@ -7,7 +7,7 @@ body {
     margin:0 auto;
     width: 980px;
     background:white;
-    padding:25px;
+    padding:10px;
     border-radius: 20px;
     box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, .2);
     box-sizing: border-box;
@@ -36,6 +36,30 @@ body {
     border:1px solid white;
 
 }
+.error {
+    
+    padding:1px 0px;
+    display:none;
+    width:450px;
+    margin:0 auto;
+}
+
+.error-display, .text-display {
+    display:block!important;
+}
+
+.text-display-opacity {
+    opacity: 1!important;
+}
+
+.text {
+    background:tomato;
+    text-align:center;
+    color:white;
+    opacity:0;
+    display:none;
+    transition: all ease-in 0.3s;
+}
 
 #form > input[type="submit"]:hover{
     background-color:green;
@@ -56,11 +80,10 @@ h1 {
     margin-right:15px;
 }
 
-.list > li a{
+.list li a {
     display: block;
-    padding: 30px;
+    padding:8px;
 }
-
 .list > li a img {
     vertical-align: middle;
     margin-right: 8px;

@@ -11,12 +11,16 @@ window.onload = function(){
         window.location.href="file:///home/myhed/Documents/front_ftp/member.html"
     }
     const form = document.querySelector("#form");
-    const keys = ["host","user","password"]
     const input = document.querySelectorAll('form > input[type="text"], input[type="password"]');
     form.addEventListener("submit",(e) => {
-         serverResponse = connectToTheServer({host:input[0].value,user:input[1].value, password:input[2].value});
-         localStorage.setItem('path',serverResponse.responseText);
-         window.location.href="file:///home/myhed/Documents/front_ftp/member.html"
+        serverResponse = connectToTheServer({host:input[0].value,user:input[1].value, password:input[2].value});
+        convertResponseToObject = JSON.parse(serverResponse.responseText);
+        if(typeof convertResponseToObject.status !== "undefined" && convertResponseToObject !== 200){
+            displayError(convertResponseToObject.message);
+        }
+         console.log(convertResponseToObject);
+        //  localStorage.setItem('path',serverResponse.responseText);
+        //  window.location.href="file:///home/myhed/Documents/front_ftp/member.html"
         e.preventDefault();
     })
     console.log(localStorage)
